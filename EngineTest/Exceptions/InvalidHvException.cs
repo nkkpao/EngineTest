@@ -8,6 +8,6 @@ namespace EngineTest.Exceptions
 {
     internal class InvalidHvException : Exception
     {
-        public InvalidHvException(string message) : base(message) { }
+        public InvalidHvException() : base("Некорректный ввод коэффициента зависимости скорости нагрева от скорости вращения коленвала") { }
     }
 }

@@ -8,6 +8,6 @@ namespace EngineTest.Exceptions
 {
     internal class InvalidHmException : Exception
     {
-        public InvalidHmException(string message) : base(message) { }
+        public InvalidHmException() : base("Некорректный ввод коэффициента зависимости скорости нагрева от крутящего момент") { }
     }
 }

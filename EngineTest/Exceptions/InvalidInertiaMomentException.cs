@@ -8,8 +8,8 @@ namespace EngineTest.Exceptions
 {
     internal class InvalidInertiaMomentException : Exception
     {
-        public InvalidInertiaMomentException(string message)
-            : base(message)
+        public InvalidInertiaMomentException()
+            : base("Некорректный ввод момента инерции")
         { }
     }
 }

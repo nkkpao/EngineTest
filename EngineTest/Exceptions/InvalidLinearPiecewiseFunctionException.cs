@@ -8,8 +8,8 @@ namespace EngineTest.Exceptions
 {
     internal class InvalidLinearPiecewiseFunctionException : Exception
     {
-        public InvalidLinearPiecewiseFunctionException(string message)
-                : base(message)
+        public InvalidLinearPiecewiseFunctionException()
+                : base("Некорректный ввод линейно-кусочной функции")
         { }
     }
 }

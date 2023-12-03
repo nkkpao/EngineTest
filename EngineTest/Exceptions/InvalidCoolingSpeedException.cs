@@ -9,8 +9,8 @@ namespace EngineTest.Exceptions
     internal class InvalidCoolingSpeedException : Exception
     {
         public double Value { get; }
-        public InvalidCoolingSpeedException(string message)
-            : base(message)
+        public InvalidCoolingSpeedException()
+            : base("Некорректный ввод коэффициента скорости охлаждения")
         {
         }
     }

@@ -34,25 +34,25 @@ namespace EngineTest.Builders
                 || _engineProperties.V.Any(value => value < 0)
                 || _engineProperties.M == null)
             {
-                throw new InvalidLinearPiecewiseFunctionException("Некорректный ввод линейно-кусочной функции");
+                throw new InvalidLinearPiecewiseFunctionException();
             }
 
             if(_engineProperties.I <= 0)
             {
-                throw new InvalidInertiaMomentException("Некорректный ввод момента инерции");
+                throw new InvalidInertiaMomentException();
             }
 
             if(_engineProperties.C < 0)
             {
-                throw new InvalidCoolingSpeedException("Некорректный ввод коэффициента скорости охлаждения");
+                throw new InvalidCoolingSpeedException();
             }
             if(_engineProperties.Hm < 0)
             {
-                throw new InvalidHmException("Некорректный ввод коэффициента зависимости скорости нагрева от крутящего момент");
+                throw new InvalidHmException();
             }
             if(_engineProperties.Hv < 0)
             {
-                throw new InvalidHvException("Некорректный ввод коэффициента зависимости скорости нагрева от скорости вращения коленвала");
+                throw new InvalidHvException();
             }
 
             return true;
