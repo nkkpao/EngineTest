@@ -1,4 +1,5 @@
 ﻿using EngineTest.Engines;
+using EngineTest.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -12,13 +13,13 @@ namespace EngineTest.Builders
     {
         private EngineProperties _engineProperties;
 
-        public InternalCombucstionEngine BuildICEngine(EngineProperties properties)
+        public InternalCombustionEngine BuildICEngine(EngineProperties properties)
         {
             _engineProperties = properties;
 
             TestProperties();
 
-            return new InternalCombucstionEngine(properties);
+            return new InternalCombustionEngine(properties);
         }
         /// <summary>
         /// Проверяет, корректно ли введены параметры создаваемого двигателя и возвращает true, если проверка была пройдена успешно.
@@ -30,25 +31,25 @@ namespace EngineTest.Builders
                 || _engineProperties.V.Any(value => value < 0)
                 || _engineProperties.M == null)
             {
-                throw new Exception("Некорректный ввод линейно-кусочной функции");
+                throw new InvalidLinearPiecewiseFunctionException("Некорректный ввод линейно-кусочной функции");
             }
 
             if(_engineProperties.I <= 0)
             {
-                throw new Exception("Некорректный ввод момента инерции");
+                throw new InvalidInertiaMomentException("Некорректный ввод момента инерции");
             }
 
             if(_engineProperties.C < 0)
             {
-                throw new Exception("Некорректный ввод коэффициента скорости охлаждения");
+                throw new InvalidCoolingSpeedException("Некорректный ввод коэффициента скорости охлаждения");
             }
             if(_engineProperties.Hm < 0)
             {
-                throw new Exception("Некорректный ввод коэффициента зависимости скорости нагрева от крутящего момент");
+                throw new InvalidHmException("Некорректный ввод коэффициента зависимости скорости нагрева от крутящего момент");
             }
             if(_engineProperties.Hv < 0)
             {
-                throw new Exception("Некорректный ввод коэффициента зависимости скорости нагрева от скорости вращения коленвала");
+                throw new InvalidHvException("Некорректный ввод коэффициента зависимости скорости нагрева от скорости вращения коленвала");
             }
 
             return true;

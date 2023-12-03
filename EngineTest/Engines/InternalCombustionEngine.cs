@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace EngineTest.Engines
 {
-    internal class InternalCombucstionEngine : Engine
+    internal class InternalCombustionEngine : Engine
     {
-        public InternalCombucstionEngine(EngineProperties engineProperties)
+        public InternalCombustionEngine(EngineProperties engineProperties)
         {
             I = engineProperties.I;
             M = new double[engineProperties.M.Length];
