@@ -11,7 +11,7 @@ namespace EngineTest.Stands
     internal class MaxPowerTestStand : IStand
     {
         Engine engine;
-        double TEnv;
+        double TEnviroment;
         double timeInterval;
         Func<Engine, bool> testFunc;
         double MaxPower = 0;
@@ -20,14 +20,14 @@ namespace EngineTest.Stands
         {
 
             this.engine = engine;
-            TEnv = tEnv;
+            TEnviroment = tEnv;
             this.timeInterval = timeInterval;
             testFunc = Test;
         }
 
         public void RunEngineTest()
         {
-            engine.Run(TEnv, timeInterval, testFunc);
+            engine.Run(TEnviroment, timeInterval, testFunc);
             Console.WriteLine($"Максимальная мощность {MaxPower}");
         }
 

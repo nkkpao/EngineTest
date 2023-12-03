@@ -11,7 +11,7 @@ namespace EngineTest
         {
             
             Console.WriteLine("Введите температуру в помещении");
-            double TEnv = Convert.ToDouble(Console.ReadLine());
+            double TEnv = Convert.ToDouble(Console.ReadLine()); //температура в помещении
             double timeInterval = 0.01; //как часто будет производиться просчёт показателей двигателя, влияет на точность
 
             EngineBuilder builder = new EngineBuilder();

@@ -13,6 +13,9 @@ namespace EngineTest.Builders
     {
         private EngineProperties _engineProperties;
 
+        /// <summary>
+        /// Создаёт двигатель внутреннего сгорания на основе полученных свойств, а так же проверяет их корректность.
+        /// </summary>
         public InternalCombustionEngine BuildICEngine(EngineProperties properties)
         {
             _engineProperties = properties;

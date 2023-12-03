@@ -10,6 +10,9 @@ namespace EngineTest.Interfaces
     internal interface IStand
     {
         public void RunEngineTest();
+        /// <summary>
+        /// Задаёт логику тестирования двигателя.
+        /// </summary>
         public bool Test(Engine engine);
     }
 }

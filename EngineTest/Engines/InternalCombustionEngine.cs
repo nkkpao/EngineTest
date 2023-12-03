@@ -24,11 +24,14 @@ namespace EngineTest.Engines
             MCurrent = M[0];
         }
 
-        public override void Run(double TEnv, double timeInterval, Func<Engine, bool> test)
+        /// <summary>
+        /// Запускает симуляцию двигателя.
+        /// </summary>
+        public override void Run(double TEnviroment, double timeInterval, Func<Engine, bool> test)
         {
             double MCurrent = M[0];
             int functionPart = 1;
-            TEngine = TEnv;
+            TEngine = TEnviroment;
             if (test.Invoke(this)) { testStop = true; };
             
 
@@ -39,13 +42,14 @@ namespace EngineTest.Engines
                 {
                     double Va = MCurrent / I;
                     double Vh = MCurrent * Hm + Math.Pow(VCurrent, 2) * Hv;
-                    double Vc = C * (TEnv - TEngine);
+                    double Vc = C * (TEnviroment - TEngine);
                     TEngine += Vh * timeInterval;
                     TEngine += Vc * timeInterval;
                     
                     
                     runTime += timeInterval;
                     VCurrent += Va * timeInterval;
+                    //Интерполяция
                     MCurrent = M[functionPart-1] + (M[functionPart] - M[functionPart - 1]) * ((VCurrent - V[functionPart - 1]) / (V[functionPart] - V[functionPart-1]));
                     if (test.Invoke(this))
                     {
