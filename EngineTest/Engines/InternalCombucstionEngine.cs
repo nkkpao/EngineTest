@@ -34,32 +34,29 @@ namespace EngineTest.Engines
 
             while (!testStop)
             {
-                double MToVCoef = (M[functionPart] - M[functionPart - 1]) / (V[functionPart] - V[functionPart - 1]);
+                
                 do
                 {
-                    
                     double Va = MCurrent / I;
                     double Vh = MCurrent * Hm + Math.Pow(VCurrent, 2) * Hv;
                     double Vc = C * (TEnv - TEngine);
                     TEngine += Vh * timeInterval;
                     TEngine += Vc * timeInterval;
                     
+                    
+                    runTime += timeInterval;
+                    VCurrent += Va * timeInterval;
+                    MCurrent = M[functionPart-1] + (M[functionPart] - M[functionPart - 1]) * ((VCurrent - V[functionPart - 1]) / (V[functionPart] - V[functionPart-1]));
                     if (test.Invoke(this))
                     {
                         testStop = true;
+                        break;
                     }
-                    runTime += timeInterval;
-                    VCurrent += Va * timeInterval;
-                    MCurrent += MToVCoef * Va;
-                    Console.WriteLine($"TEng = {TEngine}, runTime = {runTime}, Va = {Va}, Vc = {Vc}, MCurrent = {MCurrent}, VCurrent = {VCurrent}");
                 } while (VCurrent <= V[functionPart]);
 
                 if (!((functionPart + 1) >= M.Length))
                 {
                     functionPart++;
-                }
-                else {
-                    VCurrent = V[functionPart];
                 }
             }
         }
