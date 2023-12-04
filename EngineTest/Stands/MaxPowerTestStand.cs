@@ -15,6 +15,7 @@ namespace EngineTest.Stands
         double timeInterval;
         Func<Engine, bool> testFunc;
         double MaxPower = 0;
+        double MaxPowerV = 0;
 
         public MaxPowerTestStand(Engine engine, double tEnv, double timeInterval)
         {
@@ -28,7 +29,7 @@ namespace EngineTest.Stands
         public void RunEngineTest()
         {
             engine.Run(TEnviroment, timeInterval, testFunc);
-            Console.WriteLine($"Максимальная мощность {MaxPower}");
+            Console.WriteLine($"Максимальная мощность {MaxPower} при {MaxPower} рад/сек");
         }
 
         public bool Test(Engine engine)
@@ -36,6 +37,7 @@ namespace EngineTest.Stands
             if((engine.MCurrent * engine.VCurrent / 1000) > MaxPower)
             {
                 MaxPower = (engine.MCurrent * engine.VCurrent / 1000);
+                MaxPowerV = engine.VCurrent;
                 return false;
             }
             else if(engine.VCurrent >= engine.V[engine.V.Length-2])
