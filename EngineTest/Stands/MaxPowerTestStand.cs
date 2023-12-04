@@ -34,9 +34,9 @@ namespace EngineTest.Stands
 
         public bool Test(Engine engine)
         {
-            if((engine.MCurrent * engine.VCurrent / 1000) > MaxPower)
+            if( engine.NCurrent > MaxPower)
             {
-                MaxPower = (engine.MCurrent * engine.VCurrent / 1000);
+                MaxPower = engine.NCurrent;
                 MaxPowerV = engine.VCurrent;
                 return false;
             }

@@ -51,6 +51,7 @@ namespace EngineTest.Engines
                     VCurrent += Va * timeInterval;
                     //Интерполяция
                     MCurrent = M[functionPart-1] + (M[functionPart] - M[functionPart - 1]) * ((VCurrent - V[functionPart - 1]) / (V[functionPart] - V[functionPart-1]));
+                    NCurrent = MCurrent * VCurrent / 1000;
                     if (test.Invoke(this))
                     {
                         testStop = true;

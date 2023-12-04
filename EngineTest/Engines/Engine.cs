@@ -19,8 +19,9 @@ namespace EngineTest.Engines
         public double runTime { get; protected set; } = 0; //время работы
         public bool testStop = false;
 
-        public double VCurrent;
-        public double MCurrent;
+        public double VCurrent { get; protected set; }
+        public double MCurrent { get; protected set; }
+        public double NCurrent { get; protected set; }
 
         public virtual void Run(double TEnv, double timeInterval, Func<Engine, bool> test)
         {
