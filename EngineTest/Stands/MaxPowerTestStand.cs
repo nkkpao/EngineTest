@@ -29,7 +29,7 @@ namespace EngineTest.Stands
         public void RunEngineTest()
         {
             engine.Run(TEnviroment, timeInterval, testFunc);
-            Console.WriteLine($"Максимальная мощность {MaxPower} при {MaxPower} рад/сек");
+            Console.WriteLine($"Максимальная мощность {MaxPower} при {MaxPowerV} рад/сек");
         }
 
         public bool Test(Engine engine)
